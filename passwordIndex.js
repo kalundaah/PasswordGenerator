@@ -4,18 +4,22 @@ let store = ["A", "B", "C","D","E","F","G","H","I","J","K","L","M","N","O","P","
 "*","_","-"]
 let key1 =""
 let key2 =""
-let randomIndex = Math.floor(Math.random()*store.length) 
-document.getElementById("generate-btn").addEventListener("click",function(){
-    generatePassword()
-})
+let storelen = store.length
+let randomIndex = Math.floor(Math.random()*storelen) 
+let lenval = document.getElementById("length")
+let out1 =  document.getElementById("o1")
+let out2 = document.getElementById("o2")
 
 function generatePassword(){
-    for ( let i = 0; i < document.getElementById("length").value; i++)
+    key1=""
+    key2=""
+    for ( let i = 0; i < lenval.value; i++)
     {
+        randomIndex = Math.floor(Math.random()*storelen) 
         key1 += store[randomIndex]
         key2 += store[randomIndex]
     }
-    document.getElementById("o1").textContent = key1
-    document.getElementById("o2").textContent = key2
-    document.getElementById("length").value = ""
+    out1.textContent = key1
+    out2.textContent = key2
 }
+
